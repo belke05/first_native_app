@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
 import { StyleSheet, View, FlatList, Button } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 export default function App() {
   const [allGoals, setAllGoals] = useState([]);
@@ -23,13 +24,22 @@ export default function App() {
 
   return (
     <View style={{ paddingTop: 40 }}>
-      <Button
+      {/* <Button
         icon=""
         title="add new goal"
         onPress={() => {
           setModalVisible(!modalVisible);
         }}
-      ></Button>
+      ></Button> */}
+      <Icon
+        style={styles.icon}
+        onPress={() => {
+          setModalVisible(!modalVisible);
+        }}
+        name="plus"
+        size={30}
+        color="black"
+      />
       <GoalInput
         addGoal={addGoal}
         visible={modalVisible}
@@ -91,5 +101,8 @@ const styles = StyleSheet.create({
     padding: "4%",
     margin: 5,
     backgroundColor: "#BADA55"
+  },
+  icon: {
+    alignSelf: "center"
   }
 });
